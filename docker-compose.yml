@@ -1,11 +1,11 @@
 services:
   db:
     image: postgres:15-alpine
-    container_name: reservation_db
+    container_name: task_db
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: reservation_db
+      POSTGRES_DB: task_db
     ports:
       - "5432:5432"
     volumes:
@@ -13,13 +13,13 @@ services:
 
   api:
     build: .
-    container_name: reservation_api
+    container_name: task_api
     volumes:
       - ./app:/src/app
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql://user:password@db:5432/reservation_db
+      - DATABASE_URL=postgresql://user:password@db:5432/task_db
     depends_on:
       - db
 
