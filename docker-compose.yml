@@ -6,6 +6,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: task_db
+      TZ: Asia/Tokyo
     ports:
       - "5432:5432"
     volumes:
@@ -20,6 +21,7 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=postgresql://user:password@db:5432/task_db
+      - TZ=Asia/Tokyo
     depends_on:
       - db
 

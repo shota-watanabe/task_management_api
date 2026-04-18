@@ -3,7 +3,8 @@ uvicorn
 sqlalchemy
 psycopg2-binary  # PostgreSQL接続用
 pydantic
+pydantic[email]
 pydantic-settings
 alembic
 ruff
-passlib[bcrypt]
+bcrypt
