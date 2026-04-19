@@ -1,6 +1,7 @@
 import os
+
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.orm import declarative_base, sessionmaker
 
 DATABASE_URL = os.getenv("DATABASE_URL", "")
 
@@ -12,6 +13,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 # 各テーブル定義（Model）の親となるベースクラス
 Base = declarative_base()
+
 
 # FastAPIの依存関係注入（DI）で使う、DBセッション取得関数
 # APIが呼ばれるたびにDB接続を開き、処理が終わったら必ず閉じる

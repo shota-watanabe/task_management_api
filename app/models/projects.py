@@ -1,6 +1,8 @@
-from sqlalchemy import Column, BigInteger, String, Text, DateTime, ForeignKey
+from sqlalchemy import BigInteger, Column, DateTime, ForeignKey, String, Text
 from sqlalchemy.sql import func
+
 from app.database import Base
+
 
 class Project(Base):
     __tablename__ = "projects"

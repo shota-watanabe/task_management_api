@@ -1,0 +1,14 @@
+[tool.ruff]
+# 対象とするPythonのバージョン
+target-version = "py311"
+# 1行の最大文字数（少し広めの119文字を設定）
+line-length = 119
+
+[tool.ruff.lint]
+# E: pycodestyle (基本的なエラー)
+# F: Pyflakes (未使用変数などのエラー)
+# I: isort (importの順序ソート)
+select = ["E", "F", "I"]
+
+# alembicの自動生成ファイルはチェック対象から外す
+exclude = ["alembic"]
