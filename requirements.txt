@@ -10,3 +10,5 @@ ruff
 bcrypt
 PyJWT
 python-multipart
+pytest
+httpx
