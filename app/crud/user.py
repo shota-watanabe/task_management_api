@@ -6,7 +6,7 @@ from app.schemas.user import UserCreate
 
 
 def get_password_hash(password: str) -> str:
-    """平文パスワードをハッシュ化する関数"""
+    """平文パスワードをハッシュ化する"""
     # bcryptはバイト列(bytes)を扱うため、encode()が必要
     salt = bcrypt.gensalt()
     hashed = bcrypt.hashpw(password.encode("utf-8"), salt)
@@ -14,8 +14,13 @@ def get_password_hash(password: str) -> str:
     return hashed.decode("utf-8")
 
 
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """パスワードが正しいか検証する"""
+    return bcrypt.checkpw(plain_password.encode("utf-8"), hashed_password.encode("utf-8"))
+
+
 def get_user_by_email(db: Session, email: str):
-    """メールアドレスからユーザーを検索する（登録済みのチェックに使用）"""
+    """メールアドレスからユーザーを検索する"""
     return db.query(User).filter(User.email == email).first()
 
 

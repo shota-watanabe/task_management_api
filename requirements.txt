@@ -8,3 +8,5 @@ pydantic-settings
 alembic
 ruff
 bcrypt
+PyJWT
+python-multipart
